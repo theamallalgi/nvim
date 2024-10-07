@@ -1,0 +1,98 @@
+return {
+	"stevearc/dressing.nvim",
+	opts = {},
+	config = function()
+		require("dressing").setup({
+			input = {
+				enabled = true,
+				default_prompt = "Input", -- Default prompt string
+				trim_prompt = true, -- Trim trailing `:` from prompt
+				title_pos = "left", -- Can be 'left', 'right', or 'center'
+				start_in_insert = true, -- When true, input will start in insert mode.
+				border = "rounded", -- These are passed to nvim_open_win
+				relative = "cursor", -- 'editor' and 'win' will default to being centered
+				prefer_width = 40, -- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
+				width = nil,
+				max_width = { 140, 0.9 }, -- min_width = {20, 0.2} means "the greater of 20 columns or 20% of total"
+				min_width = { 20, 0.2 }, -- min_width and max_width can be a list of mixed types.
+				buf_options = {},
+				win_options = {
+					wrap = false, -- Disable line wrapping
+					list = true, -- Indicator for when text exceeds window
+					listchars = "precedes:…,extends:…",
+					sidescrolloff = 0, -- Increase this for more context when text scrolls off the window
+				},
+				mappings = {
+					n = {
+						["<Esc>"] = "Close",
+						["<CR>"] = "Confirm",
+					},
+					i = {
+						["<C-c>"] = "Close",
+						["<CR>"] = "Confirm",
+						["<Up>"] = "HistoryPrev",
+						["<Down>"] = "HistoryNext",
+					},
+				},
+				override = function(conf)
+					return conf
+				end,
+				get_config = nil,
+			},
+			select = {
+				enabled = true,
+				backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
+				trim_prompt = true,
+				-- Options for telescope selector
+				-- These are passed into the telescope picker directly. Can be used like:
+				-- telescope = require('telescope.themes').get_ivy({...})
+				telescope = nil,
+				nui = {
+					position = "50%",
+					size = nil,
+					relative = "editor",
+					border = {
+						style = "rounded",
+					},
+					buf_options = {
+						swapfile = false,
+						filetype = "DressingSelect",
+					},
+					win_options = {
+						winblend = 0,
+					},
+					max_width = 80,
+					max_height = 40,
+					min_width = 40,
+					min_height = 10,
+				},
+				builtin = {
+					show_numbers = true,
+					border = "rounded",
+					relative = "editor",
+					buf_options = {},
+					win_options = {
+						cursorline = true,
+						cursorlineopt = "both",
+					},
+					width = nil,
+					max_width = { 140, 0.8 },
+					min_width = { 40, 0.2 },
+					height = nil,
+					max_height = 0.9,
+					min_height = { 10, 0.2 },
+					mappings = {
+						["<Esc>"] = "Close",
+						["<C-c>"] = "Close",
+						["<CR>"] = "Confirm",
+					},
+					override = function(conf)
+						return conf
+					end,
+				},
+				format_item_override = {},
+				get_config = nil,
+			},
+		})
+	end,
+}
