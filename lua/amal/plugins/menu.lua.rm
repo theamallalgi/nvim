@@ -1,0 +1,7 @@
+return {
+	"nvchad/menu",
+	config = function()
+		local options = vim.bo.ft == "Neo-Tree" and "neo-tree" or "default"
+		require("menu").open(options, { mouse = true })
+	end
+}

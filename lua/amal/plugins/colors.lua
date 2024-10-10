@@ -107,6 +107,10 @@ return {
 		config = function(plugin)
 			vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
 			vim.cmd([[colorscheme aura-dark]])
+			-- seperators
+			vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#0f0f14", bg = "NONE" })
+			vim.api.nvim_set_hl(0, 'StatusLine', { fg = "NONE", bg = "NONE" })
+			vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = "NONE", bg = "NONE" })
 		end,
 	},
 }

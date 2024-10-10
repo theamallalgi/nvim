@@ -58,3 +58,19 @@ end
 vim.cmd([[hi TelescopeNormal guifg=red guibg=blue]])
 vim.cmd([[hi TelescopePrompt guifg=cyan]])
 vim.cmd([[hi TelescopeResults guifg=blue]])
+
+-- Hide Bufferline and Lualine when Alpha is open
+vim.api.nvim_create_autocmd("User", {
+    pattern = "AlphaReady",
+    callback = function()
+			vim.cmd([[set showtabline=0 laststatus=0]])
+    end
+})
+
+-- Show bufferline and Lualine when leaving Alpha
+vim.api.nvim_create_autocmd("BufUnload", {
+    buffer = 0,
+    callback = function()
+		vim.cmd([[set showtabline=2 laststatus=2]])
+    end
+})

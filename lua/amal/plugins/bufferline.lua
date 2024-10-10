@@ -5,13 +5,14 @@ return {
 	opts = {
 		options = {
 			mode = "tabs",
+			indicator = { style = 'none' },
 			seperator_style = "slant",
 			offsets = {
 				{
 					filetype = "neo-tree",
-					text = "⁂  Explorer",
+					text = "  Explorer",
 					text_align = "left",
-					separator = true,
+					separator = false,
 				},
 			},
 		},

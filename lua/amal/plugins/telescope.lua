@@ -19,8 +19,8 @@ return {
 				path_display = { "smart" },
 				mappings = {
 					i = {
-						["<C-j>"] = require('telescope.actions').move_selection_next,
-						["<C-k>"] = require('telescope.actions').move_selection_previous,
+						["<Down>"] = { require('telescope.actions').move_selection_next, remap = true },
+						["<Up>"] = { require('telescope.actions').move_selection_previous, remap = true },
 					},
 				},
 			},
@@ -28,7 +28,7 @@ return {
 
 		telescope.load_extension("fzf")
 
-		keymap.set("n", "<Leader>f", "<cmd>:Telescope find_files<CR>", { desc = "Fuzzy find files in cwd" })
+		keymap.set("n", "<space><space>", "<cmd>:Telescope find_files<CR>", { desc = "Fuzzy find files in cwd" })
 		keymap.set(
 			"n",
 			"<Leader>o",

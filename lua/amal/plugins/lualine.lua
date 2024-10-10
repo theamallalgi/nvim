@@ -26,14 +26,26 @@ local auraline = {
 
 	insert = {
 		a = { fg = colors.black, bg = colors.green },
+		b = { fg = colors.green },
+		c = { fg = colors.green },
+		x = { fg = colors.green },
+		y = { fg = colors.green },
 		z = { fg = colors.black, bg = colors.green },
 	},
 	visual = {
 		a = { fg = colors.black, bg = colors.orange },
+		b = { fg = colors.orange },
+		c = { fg = colors.orange },
+		x = { fg = colors.orange },
+		y = { fg = colors.orange },
 		z = { fg = colors.black, bg = colors.orange },
 	},
 	replace = {
 		a = { fg = colors.black, bg = colors.red },
+		b = { fg = colors.red },
+		c = { fg = colors.red },
+		x = { fg = colors.red },
+		y = { fg = colors.red },
 		z = { fg = colors.black, bg = colors.red },
 	},
 	command = {
